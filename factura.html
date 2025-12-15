@@ -1,44 +1,167 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="css/style">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Facturación</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .contenedor {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin: 20px auto;
+            max-width: 900px;
+        }
+        .titulo {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+            font-size: 28px;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 10px;
+        }
+        .controles {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        #btnagregarfila {
+            background-color: #4caf50;
+            color: white;
+            padding: 10px 20px;
+            font-size: 18px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        #btnagregarfila:hover {
+            background-color: #45a049;
+        }
+        .info-productos {
+            text-align: center;
+            margin: 15px 0;
+            font-size: 16px;
+            color: #555;
+        }
+        #tblfactura {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        #tblfactura th {
+            background-color: #667eea;
+            color: white;
+            padding: 12px;
+            text-align: left;
+        }
+        #tblfactura td {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+        #tblfactura tbody tr:hover {
+            background-color: #f9f9f9;
+        }
+        #tblfactura tfoot tr {
+            background-color: #f5f5f5;
+            font-weight: bold;
+        }
+        #tblfactura tfoot td {
+            padding: 15px;
+            font-size: 16px;
+        }
+        #totalfactura {
+            background-color: #4caf50;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .enlaces {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .enlaces a {
+            display: inline-block;
+            margin: 5px 10px;
+            padding: 8px 15px;
+            background-color: #667eea;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+        .enlaces a:hover {
+            background-color: #5568d3;
+        }
+        input {
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+        button.eliminar {
+            background-color: #f44336;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button.eliminar:hover {
+            background-color: #da190b;
+        }
+    </style>
 </head>
 
 <body>
-    <center><button  id="btnagregarfila" type="button" onclick="addfila()">+</button>
-    
-     <label> numero de productos:</label><span id="numProductos">0</span>
+    <div class="contenedor">
+        <div class="titulo">📋 Sistema de Facturación</div>
+        
+        <div class="controles">
+            <button id="btnagregarfila" type="button" onclick="addfila()">+ Agregar Producto</button>
+        </div>
+        
+        <div class="info-productos">
+            <label><strong>Número de productos:</strong> <span id="numProductos" style="background-color: #667eea; color: white; padding: 5px 10px; border-radius: 4px;">0</span></label>
+        </div>
 
-    </center ">
-       
-    <table id="tblfactura" border="1" align="center" style="border-color: rgb(47, 147, 235);"  >
-        <thead>
-            <tr>
-                <th></th>
-                <th>codigo</th>
-                <th>producto</th>
-                <th>cantidad</th>
-                <th>valor unit</th>
-                <th>sub total</th>
+        <table id="tblfactura" border="1" align="center" style="border-color: rgb(47, 147, 235);">
+            <thead>
+                <tr>
+                    <th>Acción</th>
+                    <th>Código</th>
+                    <th>Producto</th>
+                    <th>Cantidad</th>
+                    <th>Valor Unit.</th>
+                    <th>Sub Total</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- FILAS DE LA FACTURA -->
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="5" align="right" style="font-size: 18px;">💰 TOTAL FACTURA:</td>
+                    <td id="totalfactura"> $0.00</td>
+                </tr>
+            </tfoot>
+        </table>
 
-            </tr>
-        </thead>
-        <tbody>
-            <!-- FILAS DE LA FACTURA -->
-        </tbody>
-        <tfoot>
-            <tr>
-                <td colspan="5" align="right">TOTAL</td>
-                <td id="totalfactura"> 0.00</td>
-            </tr>
-        </tfoot>
-    </table>
-
-
+        <div class="enlaces">
+            <a href="index.html">Inicio</a>
+            <a href="index2.html">Contacto</a>
+            <a href="calculadora.html">Calculadora</a>
+        </div>
+    </div>
 
 </body>
 <script src="js/Funcionesfacturas.js"></script>
