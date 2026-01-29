@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Piedra,papel,tijera</title>
+</head>
+<body>
+
+    <h1>Juego de Piedra, Papel o Tijera</h1>
+    <form id="juegoForm">
+        <label for="eleccionUsuario">Elige tu opción:</label>
+        <br></br>
+
+        <button type="button" onclick="seleccionarOpcion('piedra')">Piedra</button>
+        <button type="button" onclick="seleccionarOpcion('papel')">Papel</button>
+        <button type="button" onclick="seleccionarOpcion('tijera')">Tijera</button>
+        <input type="hidden" id="eleccionUsuario" name="eleccionUsuario" required>
+
+    </form>
+
+    <h2 id="resultado"></h2>
+
+    <script src="js/juego.js"></script>
+
+</body>
+</html>
+
