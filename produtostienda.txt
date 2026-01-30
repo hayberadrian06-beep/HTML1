@@ -1,0 +1,6 @@
+01;jabon;2000
+02;arroz;1200
+03;jamo;5000
+04;aceite;2500
+05;agua;1800
+06;gaseosa;3500

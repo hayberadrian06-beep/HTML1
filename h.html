@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Cargar Productos</title>
+</head>
+<body>
+
+    <h3>Selecciona el archivo de productos (.txt)</h3>
+    
+    <input type="file" id="archivoTxt" accept=".txt">
+    <br><br>
+
+    <label>Producto:</label>
+    <input type="text" id="nombreProducto" placeholder="Nombre aparecerá aquí">
+    
+    <label>Precio:</label>
+    <input type="text" id="precioProducto" placeholder="Precio aparecerá aquí">
+
+    <script>
+        document.getElementById('archivoTxt').addEventListener('change', function(e) {
+            const archivo = e.target.files[0];
+            if (!archivo) return;
+
+            const lector = new FileReader();
+
+            lector.onload = function(e) {
+                const contenido = e.target.result;
+                
+                // Suponiendo que el archivo tiene el formato: Camisa,25.00
+                const lineas = contenido.split('\n');
+                const datos = lineas[0].split(','); // Tomamos la primera línea
+
+                if (datos.length >= 2) {
+                    document.getElementById('nombreProducto').value = datos[0].trim();
+                    document.getElementById('precioProducto').value = datos[1].trim();
+                } else {
+                    alert("El formato del archivo debe ser: Producto, Precio");
+                }
+            };
+
+            lector.readAsText(archivo);
+        });
+    </script>
+
+</body>
+</html>
